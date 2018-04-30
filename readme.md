@@ -14,6 +14,6 @@ Simple server based on the Milling Machine Model.
 ### Edit config.js in config folder
     Here you can :
     - set the port number
-    - enable the security Model
+    - enable the security mode
     - set the reading timeout from CSV file in ms
     - set the server resource path
