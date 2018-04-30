@@ -1,12 +1,12 @@
 
 #OPCUA SERVER with NodeOPCUA
 Simple server based on the Milling Machine Model.
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/is3labengrd/boost-opcua-server/blob/master/img/Milling_machine_model.png)
 
 ### install from source
 
-    $ git clone "address"
-    $ cd Milling_Machine_Server_Security
+    $ git clone "https://github.com/is3labengrd/boost-opcua-server"
+    $ cd boost-opcua-server
     $ npm install
 
 ### start   
