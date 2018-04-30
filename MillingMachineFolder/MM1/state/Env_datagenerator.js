@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Env_datagenerator: function(Env_comp,data_matrix) {
+  Env_datagenerator: function(Env_comp,data_matrix,read_timeout) {
 
       var temp_env_temp = 1;
 
@@ -16,7 +16,7 @@ module.exports = {
         temp_env_temp+=1;
 
         Env_comp.env_temp.setValueFromSource({dataType:opcua.DataType.Float, value: set_env_temp});
-      }, 1000);
+      },read_timeout);
 
   }
 }

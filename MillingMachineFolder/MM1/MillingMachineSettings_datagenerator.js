@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Mms_datagenerator: function(Settings_comp,data_matrix) {
+  Mms_datagenerator: function(Settings_comp,data_matrix,read_timeout) {
 
       var tempTool = 1;
       var tempOperation = 1;
@@ -53,7 +53,7 @@ module.exports = {
         Settings_comp.n_line.setValueFromSource({dataType:opcua.DataType.Double, value: setN_line});
         Settings_comp.nb_repet.setValueFromSource({dataType:opcua.DataType.Double, value: setNb_repet});
         Settings_comp.machine_msg.setValueFromSource({dataType:opcua.DataType.String, value: setMachine_msg});
-      }, 1000);
+      }, read_timeout);
 
   }
 }

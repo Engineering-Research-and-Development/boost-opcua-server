@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Process_datagenerator: function(Process_comp,data_matrix) {
+  Process_datagenerator: function(Process_comp,data_matrix,read_timeout) {
 
       var temp_process_vib = 1;
       var temp_process_state = 1;
@@ -23,7 +23,7 @@ module.exports = {
 
         Process_comp.process_vib.setValueFromSource({dataType:opcua.DataType.Double, value: set_process_vib});
         Process_comp.process_state.setValueFromSource({dataType:opcua.DataType.Double, value: set_process_state});
-      }, 1000);
+      }, read_timeout);
 
   }
 }

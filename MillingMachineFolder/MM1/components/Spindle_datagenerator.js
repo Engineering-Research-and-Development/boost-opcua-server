@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Spindle_datagenerator: function(Spindle_comp,data_matrix) {
+  Spindle_datagenerator: function(Spindle_comp,data_matrix,read_timeout) {
 
       var temp_Spindle_brg_temp = 1;
       var temp_Spindle_vib = 1;
@@ -30,7 +30,7 @@ module.exports = {
         Spindle_comp.spindle_brg_temp.setValueFromSource({dataType:opcua.DataType.Double, value: set_Spindle_brg_temp});
         Spindle_comp.spindle_vib.setValueFromSource({dataType:opcua.DataType.Double, value: set_Spindle_vib});
         Spindle_comp.spindle_load.setValueFromSource({dataType:opcua.DataType.Double, value: set_Spindle_load});
-      }, 1000);
+      }, read_timeout);
 
   }
 }

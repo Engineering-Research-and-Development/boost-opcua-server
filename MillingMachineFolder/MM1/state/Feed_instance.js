@@ -1,7 +1,7 @@
 var datagenerator = require("./Feed_datagenerator")
 
 module.exports = {
-  Feed_instance: function(array,MillingMachine1,data_matrix) {
+  Feed_instance: function(array,MillingMachine1,data_matrix,read_timeout) {
     var Feed_obj = array[10];
 
     var Feed_comp = Feed_obj.instantiate({
@@ -9,6 +9,6 @@ module.exports = {
       browseName: "Feed"
     });
 
-    datagenerator.Feed_datagenerator(Feed_comp, data_matrix);
+    datagenerator.Feed_datagenerator(Feed_comp, data_matrix,read_timeout);
     }
 }

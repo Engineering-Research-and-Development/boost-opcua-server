@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  S_datagenerator: function(S_comp,data_matrix) {
+  S_datagenerator: function(S_comp,data_matrix,read_timeout) {
 
       var temp_S = 1;
       var temp_S_act = 1;
@@ -30,7 +30,7 @@ module.exports = {
         S_comp.s.setValueFromSource({dataType:opcua.DataType.Double, value: set_S});
         S_comp.s_act.setValueFromSource({dataType:opcua.DataType.Double, value: set_S_act});
         S_comp.override_S.setValueFromSource({dataType:opcua.DataType.Double, value: set_override_S});
-      }, 1000);
+      }, read_timeout);
 
   }
 }

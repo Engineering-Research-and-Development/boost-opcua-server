@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Drive_datagenerator: function(Drive_comp,data_matrix) {
+  Drive_datagenerator: function(Drive_comp,data_matrix,read_timeout) {
 
       var temp_drive_state = 1;
       var temp_drive_tol = 1;
@@ -30,7 +30,7 @@ module.exports = {
         Drive_comp.drive_state.setValueFromSource({dataType:opcua.DataType.Float, value: set_drive_state});
         Drive_comp.drive_tol.setValueFromSource({dataType:opcua.DataType.Float, value: set_drive_tol});
         Drive_comp.drive_state_react.setValueFromSource({dataType:opcua.DataType.Float, value: set_drive_state_react});
-      }, 1000);
+      }, read_timeout);
 
   }
 }

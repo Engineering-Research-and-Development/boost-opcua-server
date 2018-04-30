@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Feed_datagenerator: function(Feed_comp,data_matrix) {
+  Feed_datagenerator: function(Feed_comp,data_matrix,read_timeout) {
 
       var temp_feed = 1;
       var temp_override_feed = 1;
@@ -23,7 +23,7 @@ module.exports = {
 
         Feed_comp.feed.setValueFromSource({dataType:opcua.DataType.Float, value: set_feed});
         Feed_comp.override_feed.setValueFromSource({dataType:opcua.DataType.Float, value: set_override_feed});
-      }, 1000);
+      }, read_timeout);
 
   }
 }

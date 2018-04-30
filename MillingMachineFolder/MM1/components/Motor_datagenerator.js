@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Motor_datagenerator: function(Motor_comp,data_matrix) {
+  Motor_datagenerator: function(Motor_comp,data_matrix,read_timeout) {
 
       var motor_temp = 1;
 
@@ -16,7 +16,7 @@ module.exports = {
         motor_temp+=1;
 
         Motor_comp.motor_temp.setValueFromSource({dataType:opcua.DataType.Double, value: setmotor_temp});
-      }, 1000);
+      }, read_timeout);
 
   }
 }

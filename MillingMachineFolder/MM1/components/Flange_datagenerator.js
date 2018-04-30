@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Flange_datagenerator: function(Flange_comp,data_matrix) {
+  Flange_datagenerator: function(Flange_comp,data_matrix,read_timeout) {
 
       var flange_temp = 1;
 
@@ -16,7 +16,7 @@ module.exports = {
         flange_temp+=1;
 
         Flange_comp.flange_temp.setValueFromSource({dataType:opcua.DataType.Double, value: setflange_temp});
-      }, 1000);
+      }, read_timeout);
 
   }
 }

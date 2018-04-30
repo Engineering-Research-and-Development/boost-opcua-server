@@ -8,17 +8,12 @@ var opcua = require("node-opcua");
 var Type = require("./MillingMachineType/MillingMachineType");
 var Item = require("./MillingMachineFolder/MM1/MillingMachineItem1");
 var yargs = require("yargs/yargs");
+var config = require("./conf/config");
 
 var argv = yargs(process.argv)
     .wrap(132)
-    .demand("security")
-    .string("security")
-    .describe("security", "enable security ")
-    .alias("se", "security")
-    .example("app --se=true")
-    .example("app --se=false")
     .argv;
-    
+
 var data_matrix = null;
 var csvData=[];
 var data = [];
@@ -63,13 +58,16 @@ var userManager = {
 
 var server_certificate_file = constructFilename("certificates/server_cert_2048.pem");
 var server_certificate_privatekey_file = constructFilename("certificates/server_key_2048.pem");
-var enable_security = String(argv.security);
+var enable_security = config.security;
+var read_timeout = config.read_timeout;
+var port = config.port;
+var resourcePath = config.resourcePath;
 // Let's create an instance of OPCUAServer
 if (enable_security == 'true') {
 
   var server = new opcua.OPCUAServer({
-    port: 4334, // the port of the listening socket of the server
-    resourcePath: "UA/MillingMachine", // this path will be added to the endpoint resource name
+    port: port, // the port of the listening socket of the server
+    resourcePath: resourcePath, // this path will be added to the endpoint resource name
 
       securityPolicies: [
           SecurityPolicy.Basic128Rsa15,
@@ -94,8 +92,8 @@ if (enable_security == 'true') {
 if (enable_security == 'false') {
 
   var server = new opcua.OPCUAServer({
-    port: 4334, // the port of the listening socket of the server
-    resourcePath: "UA/MillingMachine", // this path will be added to the endpoint resource name
+    port: port, // the port of the listening socket of the server
+    resourcePath: resourcePath, // this path will be added to the endpoint resource name
 
     buildInfo : {
       productName: "MillingMachineServer",
@@ -113,7 +111,7 @@ function post_initialize() {
     },
     function(callback) {
       var MMobjtype = Type.construct_MillingMachineType(server);
-      Item.MillingMachineItem(MMobjtype,data_matrix);
+      Item.MillingMachineItem(MMobjtype,data_matrix,read_timeout);
     }
 
   ]);

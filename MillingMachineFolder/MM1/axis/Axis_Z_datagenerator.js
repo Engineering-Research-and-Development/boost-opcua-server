@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Axis_Z_datagenerator: function(Axis_Z_comp,data_matrix) {
+  Axis_Z_datagenerator: function(Axis_Z_comp,data_matrix,read_timeout) {
 
       var tempAxis_Z_pos = 1;
       var tempAxis_Z_load = 1;
@@ -23,7 +23,7 @@ module.exports = {
 
         Axis_Z_comp.axis_Z_pos.setValueFromSource({dataType:opcua.DataType.Double, value: setAxis_Z_pos});
         Axis_Z_comp.axis_Z_load.setValueFromSource({dataType:opcua.DataType.Double, value: setAxis_Z_load});
-      }, 1000);
+      }, read_timeout);
 
   }
 }

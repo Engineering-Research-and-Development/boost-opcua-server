@@ -9,9 +9,12 @@
   "author": "Mattia Marzano",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.6.0",
     "csv": "^3.0.2",
-    "node-opcua": "^0.2.3",
+    "csv-parse": "^2.2.0",
+    "node-opcua": "^0.3.0",
     "npm": "^5.8.0",
-    "semver": "^5.5.0"
+    "semver": "^5.5.0",
+    "underscore": "^1.9.0"
   }
 }

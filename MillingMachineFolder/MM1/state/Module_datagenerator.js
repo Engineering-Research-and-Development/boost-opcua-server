@@ -1,7 +1,7 @@
 var opcua = require("node-opcua");
 
 module.exports = {
-  Module_datagenerator: function(Module_comp,data_matrix) {
+  Module_datagenerator: function(Module_comp,data_matrix,read_timeout) {
 
       var temp_module_1_state = 1;
       var temp_module_2_state = 1;
@@ -66,7 +66,7 @@ module.exports = {
         Module_comp.module_7_state.setValueFromSource({dataType:opcua.DataType.Float, value: set_module_7_state});
         Module_comp.module_8_state.setValueFromSource({dataType:opcua.DataType.Float, value: set_module_8_state});
 
-      }, 1000);
+      },read_timeout);
 
   }
 }

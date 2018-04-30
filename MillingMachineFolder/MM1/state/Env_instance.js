@@ -1,7 +1,7 @@
 var datagenerator = require("./Env_datagenerator")
 
 module.exports = {
-  Env_instance: function(array,MillingMachine1,data_matrix) {
+  Env_instance: function(array,MillingMachine1,data_matrix,read_timeout) {
     var Env_obj = array[9];
 
     var Env_comp = Env_obj.instantiate({
@@ -9,6 +9,6 @@ module.exports = {
       browseName: "Env"
     });
 
-    datagenerator.Env_datagenerator(Env_comp,data_matrix);
+    datagenerator.Env_datagenerator(Env_comp,data_matrix,read_timeout);
     }
 }
