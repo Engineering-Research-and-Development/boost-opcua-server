@@ -3,13 +3,13 @@
 Simple server based on the Milling Machine Model.
 ![alt text](https://github.com/is3labengrd/boost-opcua-server/blob/master/img/Milling_machine_model.png)
 
-### install from source
+### Install from source
 
     $ git clone "https://github.com/is3labengrd/boost-opcua-server"
     $ cd boost-opcua-server
     $ npm install
 
-### start   
+### Start   
     $ node boot.js
 ### Edit config.js in config folder
     Here you can :
