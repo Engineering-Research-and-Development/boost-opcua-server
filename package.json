@@ -1,5 +1,5 @@
 {
-  "name": "boost-opcua-server",
+  "name": "Milling_Machine_Server_Security",
   "version": "1.0.0",
   "description": "test",
   "main": "app.js",
@@ -12,9 +12,10 @@
     "async": "^2.6.0",
     "csv": "^3.0.2",
     "csv-parse": "^2.2.0",
-    "node-opcua": "^0.3.0",
+    "node-opcua": "0.0.61",
     "npm": "^5.8.0",
     "semver": "^5.5.0",
-    "underscore": "^1.9.0"
+    "underscore": "^1.9.0",
+    "yargs": "github:yargs/yargs"
   }
 }
