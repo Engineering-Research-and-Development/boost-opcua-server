@@ -10,7 +10,7 @@ Simple server based on the Milling Machine Model.
     $ npm install
 
 ### Start   
-    $ node boot.js
+    $ node boost.js
 ### Edit config.js in config folder
     Here you can :
     - set the port number
